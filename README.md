@@ -14,6 +14,8 @@ Visualized survival patterns across sex, passenger class, age, and fare. Found t
 - Young children had noticeably better survival odds than other age groups
 - Survivors tended to have paid higher fares on average
 - Overall, survival correlated strongly with social status and gender rather than being random
+- - Survival rate by family size revealed a clear pattern: passengers traveling alone had only 30% survival, small families (3-4 people) peaked at 55-72%, while large families (7+) had 0-33% survival — small groups could move and help each other efficiently, while large families may have struggled to stay together or fit in lifeboats
+- Even within 1st class, survival rate differed drastically by sex — 96.8% for women vs 36.9% for men — showing gender was a stronger predictor than wealth/class alone
 
 **2. Data Cleaning**
 - Filled missing `Age` values using the median age per passenger title (Mr/Mrs/Miss/etc.) rather than a single flat average, for a more accurate estimate
