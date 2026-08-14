@@ -19,6 +19,9 @@ Visualized survival patterns across sex, passenger class, age, and fare. Found t
 - - Even among the top 5 highest-paying passengers (all 1st class), one still did not survive — wealth improved odds significantly but wasn't an absolute guarantee
 - Young boys (Title = "Master") survived at 57.5%, roughly 3x the survival rate of adult men (~19%) — showing "women and children first" extended specifically to boys, not just women
 
+**Data Validation**
+Before modeling, combined `train` and `test` using `pd.concat()` to check for distribution shift — confirmed the average passenger age was nearly identical between the two sets (29.39 vs 29.68), indicating a fair, representative split. This kind of sanity check helps catch cases where a model might perform well in training but poorly on unseen data due to mismatched distributions.
+
 **2. Data Cleaning**
 - Filled missing `Age` values using the median age per passenger title (Mr/Mrs/Miss/etc.) rather than a single flat average, for a more accurate estimate
 - Dropped `Cabin` (over 75% missing — too sparse to reliably impute)
