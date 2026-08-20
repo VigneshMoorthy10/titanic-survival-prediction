@@ -22,6 +22,20 @@ Visualized survival patterns across sex, passenger class, age, and fare. Found t
 **Data Validation**
 Before modeling, combined `train` and `test` using `pd.concat()` to check for distribution shift — confirmed the average passenger age was nearly identical between the two sets (29.39 vs 29.68), indicating a fair, representative split. This kind of sanity check helps catch cases where a model might perform well in training but poorly on unseen data due to mismatched distributions.
 
+**Key Finding: Sex + Class Combined**
+Querying survival rate by sex and class together (via SQL) revealed the clearest pattern in the dataset:
+
+| Sex | Class | Survival Rate | Passengers |
+|---|---|---|---|
+| Female | 1st | 96.8% | 94 |
+| Female | 2nd | 92.1% | 76 |
+| Female | 3rd | 50.0% | 144 |
+| Male | 1st | 36.9% | 122 |
+| Male | 2nd | 15.7% | 108 |
+| Male | 3rd | 13.5% | 347 |
+
+Notably, a female 3rd class passenger (50.0%) still survived at a higher rate than a male 1st class passenger (36.9%) — showing gender was a stronger predictor of survival than wealth/class, though the two combined gave by far the best odds.
+
 **2. Data Cleaning**
 - Filled missing `Age` values using the median age per passenger title (Mr/Mrs/Miss/etc.) rather than a single flat average, for a more accurate estimate
 - Dropped `Cabin` (over 75% missing — too sparse to reliably impute)
